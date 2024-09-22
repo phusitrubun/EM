@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Online Store</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background-color: #90191B;
+            color: white;
+            padding: 20px 0;
+        }
+
+        header h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border: 1px solid white;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+        }
+
+        nav ul li a i {
+            margin-right: 5px;
+        }
+
+        nav ul li a:hover {
+            background-color: white;
+            color: #90191B;
+        }
+
+        main {
+            flex: 1;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #90191B;
+            margin-bottom: 20px;
+        }
+
+        .admin-section {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        input, select, button {
+            padding: 10px;
+            font-size: 1em;
+        }
+
+        button {
+            background-color: #90191B;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #B81A1B;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #90191B;
+            color: white;
+        }
+
+        footer {
+            background-color: #90191B;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        @media(max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Admin Dashboard</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Store Front</a></li>
+                    <li><a href="#products"><i class="fas fa-box"></i> Manage Products</a></li>
+                    <li><a href="#orders"><i class="fas fa-shopping-cart"></i> View Orders</a></li>
+                    <li><a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <section id="products" class="admin-section">
+                <h2>Manage Products</h2>
+                <form id="add-product-form">
+                    <input type="text" id="product-name" placeholder="Product Name" required>
+                    <input type="number" id="product-price" placeholder="Price" step="0.01" required>
+                    <select id="product-category" required>
+                        <option value="">Select Category</option>
+                        <option value="electronics">Electronics</option>
+                        <option value="clothing">Clothing</option>
+                        <option value="books">Books</option>
+                    </select>
+                    <input type="text" id="product-image" placeholder="Image URL" required>
+                    <button type="submit">Add Product</button>
+                </form>
+                <h3>Product List</h3>
+                <table id="product-list">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Category</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Product rows will be dynamically added here -->
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="orders" class="admin-section">
+                <h2>View Orders</h2>
+                <table id="order-list">
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Customer</th>
+                            <th>Total</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Order rows will be dynamically added here -->
+                    </tbody>
+                </table>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Online Store. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Sample product data
+        let products = [
+            { id: 1, name: "Smartphone", price: 499.99, category: "electronics", image: "smartphone.jpg" },
+            { id: 2, name: "T-shirt", price: 19.99, category: "clothing", image: "tshirt.jpg" },
+            { id: 3, name: "Novel", price: 9.99, category: "books", image: "novel.jpg" }
+        ];
+
+        // Sample order data
+        let orders = [
+            { id: 1, customer: "John Doe", total: 529.97, status: "Shipped" },
+            { id: 2, customer: "Jane Smith", total: 29.98, status: "Processing" }
+        ];
+
+        // Function to display products
+        function displayProducts() {
+            const productList = document.getElementById('product-list').getElementsByTagName('tbody')[0];
+            productList.innerHTML = '';
+            products.forEach(product => {
+                const row = productList.insertRow();
+                row.innerHTML = `
+                    <td>${product.name}</td>
+                    <td>$${product.price.toFixed(2)}</td>
+                    <td>${product.category}</td>
+                    <td>
+                        <button onclick="editProduct(${product.id})">Edit</button>
+                        <button onclick="deleteProduct(${product.id})">Delete</button>
+                    </td>
+                `;
+            });
+        }
+
+        // Function to display orders
+        function displayOrders() {
+            const orderList = document.getElementById('order-list').getElementsByTagName('tbody')[0];
+            orderList.innerHTML = '';
+            orders.forEach(order => {
+                const row = orderList.insertRow();
+                row.innerHTML = `
+                    <td>${order.id}</td>
+                    <td>${order.customer}</td>
+                    <td>$${order.total.toFixed(2)}</td>
+                    <td>${order.status}</td>
+                    <td>
+                        <button onclick="viewOrderDetails(${order.id})">View Details</button>
+                    </td>
+                `;
+            });
+        }
+
+        // Function to add a new product
+        document.getElementById('add-product-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const newProduct = {
+                id: products.length + 1,
+                name: document.getElementById('product-name').value,
+                price: parseFloat(document.getElementById('product-price').value),
+                category: document.getElementById('product-category').value,
+                image: document.getElementById('product-image').value
+            };
+            products.push(newProduct);
+            displayProducts();
+            this.reset();
+        });
+
+        // Function to edit a product (placeholder)
+        function editProduct(id) {
+            alert(`Edit product with ID ${id}`);
+            // Implement edit functionality
+        }
+
+        // Function to delete a product
+        function deleteProduct(id) {
+            products = products.filter(product => product.id !== id);
+            displayProducts();
+        }
+
+        // Function to view order details (placeholder)
+        function viewOrderDetails(id) {
+            alert(`View details for order ${id}`);
+            // Implement order details view
+        }
+
+        // Function to handle logout
+        function logout() {
+            alert("You have been logged out.");
+            // Redirect to login page or implement actual logout logic
+            window.location.href = "index.html";
+        }
+
+        // Initialize the dashboard
+        displayProducts();
+        displayOrders();
+    </script>
+</body>
+</html>

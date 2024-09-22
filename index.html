@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Online Store</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1>Online Store</h1>
+        <nav>
+          <ul>
+            <li>
+              <a href="#home"><i class="fas fa-home"></i> Home</a>
+            </li>
+            <li>
+              <a  onclick="scrollToSection('products')"
+                ><i class="fas fa-shopping-bag"></i> Products</a
+              >
+            </li>
+            <li>
+              <a href="about.html"
+                ><i class="fas fa-info-circle"></i> About</a
+              >
+            </li>
+            <li>
+              <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+            </li>
+            <li>
+              <a href="cart.html"><i class="fas fa-shopping-cart"></i> Cart</a>
+            </li>
+            <li><a href="admin.html"><i class="fas fa-user"></i> Admin</a></li>
+          </ul>
+        </nav>
+        <div class="profile-icon" onclick="toggleProfileCard()">
+          <img
+            src="https://www.w3schools.com/howto/img_avatar.png"
+            alt="Profile Icon"
+          />
+        </div>
+      </div>
+    </header>
+
+    <section id="hero">
+      <div class="hero-content">
+        <h2>Welcome to Our Store!</h2>
+        <p>Find the best products at affordable prices.</p>
+        <button onclick="scrollToSection('products')">Shop Now</button>
+      </div>
+    </section>
+
+    <section id="categories" class="container">
+      <h2>Select Category</h2>
+      <div class="category-list">
+        <button onclick="filterProducts('all')">All Products</button>
+        <button onclick="filterProducts('clothes')">Clothes</button>
+        <button onclick="filterProducts('accessories')">Accessories</button>
+        <button onclick="filterProducts('shoes')">Shoes</button>
+        <button onclick="filterProducts('electronics')">Electronics</button>
+      </div>
+    </section>
+
+    <section id="products" class="container">
+      <h2>Featured Products</h2>
+      <div class="product-list">
+        <div class="product-item" data-category="clothes">
+          <img
+            src="https://static.vecteezy.com/system/resources/thumbnails/041/714/543/small_2x/ai-generated-black-blank-t-shirt-front-mockup-on-a-transparent-background-png.png"
+            alt="T-Shirt"
+          />
+          <h3>T-Shirt</h3>
+          <p>$10.00</p>
+        </div>
+        <div class="product-item" data-category="accessories">
+          <img
+            src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
+            alt="Bag"
+          />
+          <h3>Bag</h3>
+          <p>$15.00</p>
+        </div>
+        <div class="product-item" data-category="shoes">
+          <img
+            src="https://www.pngitem.com/pimgs/m/10-109181_nike-shoes-png-hd-transparent-png.png"
+            alt="Shoes"
+          />
+          <h3>Shoes</h3>
+          <p>$20.00</p>
+        </div>
+        <div class="product-item" data-category="clothes">
+          <img
+            src="https://www.pngarts.com/files/4/Polo-Shirt-PNG-Transparent-Image.png"
+            alt="Polo Shirt"
+          />
+          <h3>Polo Shirt</h3>
+          <p>$25.00</p>
+        </div>
+        <div class="product-item" data-category="accessories">
+          <img
+            src="https://png.pngtree.com/png-vector/20240207/ourmid/pngtree-black-sunglasses-eyewear-png-image_11671474.png"
+            alt="Sunglasses"
+          />
+          <h3>Sunglasses</h3>
+          <p>$30.00</p>
+        </div>
+        <div class="product-item" data-category="shoes">
+          <img
+            src="https://contents.mediadecathlon.com/p2606912/k$9129a6acdfafd09dba5e4c805cb8f39b/jogflow-500-1-men-s-running-shoes-white-blue-red-kalenji-8670194.jpg?f=1920x0&format=auto"
+            alt="Running Shoes"
+          />
+          <h3>Running Shoes</h3>
+          <p>$50.00</p>
+        </div>
+        <div class="product-item" data-category="electronics">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRD4ptSLwnADJYa6U_VH2h768VC8B58ZfWHRg&s"
+            alt="Smartphone"
+          />
+          <h3>Smartphone</h3>
+          <p>$299.99</p>
+        </div>
+        <div class="product-item" data-category="electronics">
+          <img
+            src="https://i.pinimg.com/originals/b2/39/21/b2392123978a9779bb008b049c57fbec.png"
+            alt="Laptop"
+          />
+          <h3>Laptop</h3>
+          <p>$799.99</p>
+        </div>
+        <div class="product-item" data-category="clothes">
+          <img
+            src="https://i5.walmartimages.com/seo/outfmvch-jeans-for-men-fashion-plus-size-loose-jeans-street-wide-leg-pants-for-men-cargo-pants_34a25408-36c7-4eed-ac49-e7fe2b6450a4.2345aab0bf01e5126c03773b10b2498d.jpeg"
+            alt="Jeans"
+          />
+          <h3>Jeans</h3>
+          <p>$39.99</p>
+        </div>
+      </div>
+    </section>
+    
+      
+
+    <div id="profileCard" class="profile-card">
+      <h3>John Doe</h3>
+      <p>john.doe@example.com</p>
+      <button onclick="logout()">Logout</button> <!-- Added Logout button -->
+    </div>
+    
+
+    <footer>
+      <div class="container">
+        <p>&copy; 2024 Online Store. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

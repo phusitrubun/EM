@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Online Store</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Header */
+header {
+  background-color: #90191B;
+  color: white;
+  padding: 20px 0;
+  position: relative;
+}
+
+header h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  border: 1px solid white;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+nav ul li a i {
+  margin-right: 5px;
+}
+
+nav ul li a:hover {
+  background-color: white;
+  color: #90191B;
+}
+
+/* Hero Section */
+#hero {
+  background-color: #E3BB66;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.hero-content {
+  text-align: center;
+}
+
+.hero-content h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+.hero-content p {
+  margin: 10px 0 20px;
+  font-size: 1.2em;
+}
+
+.hero-content button {
+  background-color: #90191B;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s ease;
+}
+
+.hero-content button:hover {
+  background-color: #B81A1B;
+}
+
+/* Category Section */
+#categories {
+  padding: 20px 0;
+  text-align: center;
+}
+
+#categories h2 {
+  margin-bottom: 20px;
+}
+
+.category-list button {
+  background-color: #90191B;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.category-list button:hover {
+  background-color: #B81A1B;
+}
+
+/* Products Section */
+#products {
+  padding: 50px 0;
+}
+
+#products h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.product-item {
+  border: 1px solid #ddd;
+  padding: 20px;
+  text-align: center;
+  background-color: #f9f9f9;
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.product-item img {
+  width: 100%;
+  height: 250px;
+  object-fit: contain;
+  margin-bottom: 15px;
+}
+
+.product-item h3 {
+  margin: 15px 0;
+}
+
+.product-item:hover {
+  transform: scale(1.05);
+}
+
+.product-item p {
+  color: #90191B;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Footer */
+footer {
+  background-color: #90191B;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+}
+
+/* Profile Card */
+.profile-card {
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 200px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: none;
+  padding: 10px;
+  z-index: 1000;
+}
+
+.profile-card h3,
+.profile-card p {
+  margin: 10px 0;
+  text-align: center;
+}
+
+.profile-icon {
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.profile-icon img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* About Page Styles */
+#about-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+#about-content h2 {
+  color: #90191B;
+  margin-bottom: 30px;
+}
+
+#about-content p {
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.team-members {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.team-member {
+  width: 200px;
+  text-align: center;
+}
+
+.team-member img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+.team-member h3 {
+  color: #90191B;
+  margin-bottom: 5px;
+}
+
+.team-member p {
+  font-style: italic;
+  color: #666;
+}
+
+/* Contact Page Styles */
+#contact-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 50px 20px;
+}
+
+#contact-content h2 {
+  color: #90191B;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.contact-info, .contact-form {
+  margin-bottom: 40px;
+}
+
+.contact-info h3, .contact-form h3 {
+  color: #90191B;
+  margin-bottom: 20px;
+}
+
+.contact-info ul {
+  list-style-type: none;
+}
+
+.contact-info li {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.contact-info i {
+  margin-right: 10px;
+  color: #90191B;
+}
+
+.contact-form form {
+  display: grid;
+  gap: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.contact-form textarea {
+  height: 150px;
+}
+
+.contact-form button {
+  background-color: #90191B;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  justify-self: start;
+}
+
+.contact-form button:hover {
+  background-color: #B81A1B;
+}
+
+#map {
+  height: 300px;
+  width: 100%;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+.profile-card button {
+  background-color: #90191B; /* Customize color */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.profile-card button:hover {
+  background-color: #B81A1B; /* Darker shade on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .product-list {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+
+  .team-members {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-form form {
+    grid-template-columns: 1fr;
+  }
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Online Store</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="index.html#products"><i class="fas fa-shopping-bag"></i> Products</a></li>
+                    <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+                    <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+                    <li><a href="cart.html"><i class="fas fa-shopping-cart"></i> Cart</a></li>
+                </ul>
+            </nav>
+            <div class="profile-icon" onclick="toggleProfileCard()">
+                <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Profile Icon">
+            </div>
+        </div>
+    </header>
+
+    <section id="contact-content">
+        <h2>Contact Us</h2>
+        <div class="contact-info">
+            <h3>Get in Touch</h3>
+            <ul>
+                <li><i class="fas fa-map-marker-alt"></i> 123 Store Street, City, Country</li>
+                <li><i class="fas fa-phone"></i> +1 234 567 8900</li>
+                <li><i class="fas fa-envelope"></i> info@onlinestore.com</li>
+                <li><i class="fas fa-clock"></i> Mon-Fri: 9am-5pm, Sat: 10am-4pm</li>
+                <li><a href="admin.html"><i class="fas fa-user"></i> Admin</a></li>
+            </ul>
+        </div>
+        
+        <div class="contact-form">
+            <h3>Send Us a Message</h3>
+            <form>
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <input type="text" name="subject" placeholder="Subject" required>
+                <textarea name="message" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+        
+        <div id="map">
+            <p>Map placeholder - Replace with actual map integration</p>
+        </div>
+    </section>
+
+    <div id="profileCard" class="profile-card">
+        <h3>John Doe</h3>
+        <p>john.doe@example.com</p>
+        <button onclick="logout()">Logout</button>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Online Store. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Easymail</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FFE6E6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+        }
+
+        /* Container styles */
+        .container {
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            display: flex;
+            width: 1000px;
+            overflow: hidden;
+        }
+
+        /* Sign-up form styles */
+        .signup-form {
+            flex: 1;
+            padding: 40px;
+        }
+
+        h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            color: #1a1a1a;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        /* Input styles */
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: #B81A1B;
+        }
+
+        /* Password requirements */
+        .password-requirements {
+            font-size: 12px;
+            color: #888;
+            margin-top: 5px;
+            list-style-type: none;
+        }
+
+        .password-requirements li {
+            margin-bottom: 3px;
+        }
+
+        /* Button styles */
+        .signup-button {
+            background-color: #B81A1B;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.1s;
+        }
+
+        .signup-button:hover {
+            background-color: #A0161B;
+        }
+
+        .signup-button:active {
+            transform: translateY(1px);
+        }
+
+        /* Social login styles */
+        .social-login {
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .social-icon:hover {
+            background-color: #e0e0e0;
+        }
+
+        /* Visual section styles */
+        .visual-section {
+            flex: 1;
+            background-color: #B81A1B;
+            padding: 40px;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .info-card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #1a1a1a;
+        }
+
+        .info-card p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* Language selector styles */
+        .language-selector {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 14px;
+            margin-top: 20px;
+        }
+
+        .language-selector select {
+            border: none;
+            background-color: transparent;
+            font-size: 14px;
+            color: #666;
+            cursor: pointer;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                width: 100%;
+                height: auto;
+                border-radius: 0;
+            }
+
+            .signup-form,
+            .visual-section {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="signup-form">
+            <h1>Sign Up</h1>
+            <p class="subtitle">Secure Your Communications with Easymail</p>
+            <form id="register-form">
+                <div class="input-group">
+                    <input type="text" id="name" placeholder="Full Name" required>
+                </div>
+                <div class="input-group">
+                    <input type="email" id="email" placeholder="Email" required>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="password" placeholder="Password" required>
+                    <ul class="password-requirements">
+                        <li>✓ Least 8 characters</li>
+                        <li>✓ Least one number (0-9) or a symbol</li>
+                        <li>✓ Lowercase (a-z) and uppercase (A-Z)</li>
+                    </ul>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="confirm-password" placeholder="Re-Type Password" required>
+                </div>
+                <button type="submit" class="signup-button">Sign Up →</button>
+            </form>
+            <div class="social-login">
+                <span>Or</span>
+                <div class="social-icon">f</div>
+                <div class="social-icon">G</div>
+            </div>
+            <div class="language-selector">
+                <span>🌐</span>
+                <select>
+                    <option>ENG</option>
+                </select>
+            </div>
+        </div>
+        <div class="visual-section">
+            <div class="info-card">
+                <h3>Your data, your rules</h3>
+                <p>Your data belongs to you, and our encryption ensures that it stays that way.</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById('register-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+            
+            if (password !== confirmPassword) {
+                alert("Passwords don't match!");
+                return;
+            }
+            
+            // Here you would typically send the registration data to your server
+            console.log('Registration attempt:', { name, email, password });
+            
+            // For demonstration purposes, we'll just log the user in
+            alert('Registration successful!');
+            // Redirect to the login page or directly to the main page
+            window.location.href = 'login.html';
+        });
+    </script>
+</body>
+</html>

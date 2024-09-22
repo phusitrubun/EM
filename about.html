@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Online Store</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Header */
+header {
+  background-color: #90191B;
+  color: white;
+  padding: 20px 0;
+  position: relative;
+}
+
+header h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  border: 1px solid white;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+nav ul li a i {
+  margin-right: 5px;
+}
+
+nav ul li a:hover {
+  background-color: white;
+  color: #90191B;
+}
+
+/* Hero Section */
+#hero {
+  background-color: #E3BB66;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.hero-content {
+  text-align: center;
+}
+
+.hero-content h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+.hero-content p {
+  margin: 10px 0 20px;
+  font-size: 1.2em;
+}
+
+.hero-content button {
+  background-color: #90191B;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s ease;
+}
+
+.hero-content button:hover {
+  background-color: #B81A1B;
+}
+
+/* Category Section */
+#categories {
+  padding: 20px 0;
+  text-align: center;
+}
+
+#categories h2 {
+  margin-bottom: 20px;
+}
+
+.category-list button {
+  background-color: #90191B;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.category-list button:hover {
+  background-color: #B81A1B;
+}
+
+/* Products Section */
+#products {
+  padding: 50px 0;
+}
+
+#products h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.product-item {
+  border: 1px solid #ddd;
+  padding: 20px;
+  text-align: center;
+  background-color: #f9f9f9;
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.product-item img {
+  width: 100%;
+  height: 250px;
+  object-fit: contain;
+  margin-bottom: 15px;
+}
+
+.product-item h3 {
+  margin: 15px 0;
+}
+
+.product-item:hover {
+  transform: scale(1.05);
+}
+
+.product-item p {
+  color: #90191B;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Footer */
+footer {
+  background-color: #90191B;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+}
+
+/* Profile Card */
+.profile-card {
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 200px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: none;
+  padding: 10px;
+  z-index: 1000;
+}
+
+.profile-card h3,
+.profile-card p {
+  margin: 10px 0;
+  text-align: center;
+}
+
+.profile-icon {
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.profile-icon img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* About Page Styles */
+#about-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+#about-content h2 {
+  color: #90191B;
+  margin-bottom: 30px;
+}
+
+#about-content p {
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.team-members {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.team-member {
+  width: 200px;
+  text-align: center;
+}
+
+.team-member img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+.team-member h3 {
+  color: #90191B;
+  margin-bottom: 5px;
+}
+
+.team-member p {
+  font-style: italic;
+  color: #666;
+}
+.profile-card button {
+  background-color: #90191B; /* Customize color */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.profile-card button:hover {
+  background-color: #B81A1B; /* Darker shade on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .product-list {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+
+  .team-members {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Online Store</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="index.html#products"><i class="fas fa-shopping-bag"></i> Products</a></li>
+                    <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+                    <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+                    <li><a href="cart.html"><i class="fas fa-shopping-cart"></i> Cart</a></li>
+                    <li><a href="admin.html"><i class="fas fa-user"></i> Admin</a></li>
+                </ul>
+            </nav>
+            <div class="profile-icon" onclick="toggleProfileCard()">
+                <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Profile Icon">
+            </div>
+        </div>
+    </header>
+
+    <section id="about-content">
+        <h2>About Our Online Store</h2>
+        <p>Welcome to our Online Store, where quality meets affordability. Established in 2020, we've been committed to providing our customers with a wide range of products, from trendy clothes and accessories to cutting-edge electronics.</p>
+        <p>Our mission is to make online shopping a seamless and enjoyable experience for everyone. We carefully curate our product selection to ensure that we offer only the best items at competitive prices.</p>
+        <p>What sets us apart is our dedication to customer satisfaction. We believe in building long-lasting relationships with our customers through excellent service, quality products, and a user-friendly shopping experience.</p>
+        
+        <h3>Meet Our Team</h3>
+        <div class="team-members">
+            <div class="team-member">
+                <img src="https://scontent-bkk1-1.xx.fbcdn.net/v/t39.30808-6/434188956_922762879644179_4643911826198376064_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeGa21plL4lu7s1aQlmPRYKOobtDdhj06-2hu0N2GPTr7Z_SfhRrq7tDZl3s_FfdcSbWLklqLc_Kk_3qxL3TQK4J&_nc_ohc=UOk4jjO-jLkQ7kNvgFqOj4L&_nc_ht=scontent-bkk1-1.xx&oh=00_AYAxoCOO1MXVPnUIUjG09ix_znqcOx3qehsj9Ytx0JoVIA&oe=66E7B615" alt="John Doe">
+                <h3>John Doe</h3>
+                <p>Founder & CEO</p>
+            </div>
+            <div class="team-member">
+                <img src="https://scontent-bkk1-1.xx.fbcdn.net/v/t39.30808-6/428606496_910089324244868_8101702996675370410_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeGOXxhw4ZEmC8IGmYFVPz0P-PSQM5Tqo0f49JAzlOqjR-ZEG76CQ6NnXsy4hj5UVqpHM-cYF2zZKByzk4-XZ-kV&_nc_ohc=BIF2IwWlXWUQ7kNvgGpJGrX&_nc_ht=scontent-bkk1-1.xx&_nc_gid=AWNoZxqePZSt_EhFh_5x-RO&oh=00_AYCmlMG5VFRdbAc29uscVH-ZkKnvv_GUD94_zvq8oxNjxA&oe=66E7A6B0" alt="Jane Smith">
+                <h3>Jane Smith</h3>
+                <p>Head of Operations</p>
+            </div>
+            <div class="team-member">
+                <img src="https://scontent-bkk1-1.xx.fbcdn.net/v/t39.30808-6/418733793_881050123815455_4618087074797509757_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeGR_-PPpiyFQNFEvJeACYhUWXnR60MW7CJZedHrQxbsImHGKaFoqYLG-b1kLpzcQTs8COtXW-jylyyqcjTrc1TH&_nc_ohc=L-WAX2dt5yUQ7kNvgFmggrQ&_nc_ht=scontent-bkk1-1.xx&_nc_gid=AE9YXjJBfo4Q2X8GpXd5vvL&oh=00_AYDbYDrTz7VaMn6lzl701Qh7YYE9CYPxGVc6vsNDsqEIKA&oe=66E7C9D5" alt="Mike Johnson">
+                <h3>Mike Johnson</h3>
+                <p>Customer Service Manager</p>
+            </div>
+        </div>
+    </section>
+
+    <div id="profileCard" class="profile-card">
+        <h3>John Doe</h3>
+        <p>john.doe@example.com</p>
+        <button onclick="logout()">Logout</button>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Online Store. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
